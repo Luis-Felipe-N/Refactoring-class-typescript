@@ -16,10 +16,6 @@ interface IFood {
   image: string
 }
 
-interface IEditModalOpen {
-  editingFood: IFood; 
-  editModalOpen: boolean;
-}
 
 export function Dashboard() {
   const [foods, setFoods] = useState<IFood[]>([])
@@ -96,11 +92,12 @@ export function Dashboard() {
         isOpen={modalOpen}
         setIsOpen={toggleModal}
         handleAddFood={handleAddFood}
+        editingFood={handleEditFood}
       />
       <ModalEditFood
         isOpen={editModalOpen}
         setIsOpen={toggleEditModal}
-        editingFood={editingFood}
+        editingFood={handleEditFood}
         handleUpdateFood={handleUpdateFood}
       />
 
